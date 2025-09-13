@@ -2,10 +2,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run Sentiment Agent GUI",
+      "name": "Run Sentiment App (single file)",
       "type": "python",
       "request": "launch",
-      "program": "${workspaceFolder}/agent_gui.py",
+      "program": "${workspaceFolder}/sentiment_app.py",
       "console": "integratedTerminal"
     }
   ]
