@@ -1,0 +1,108 @@
+:root {
+  --accent: #06b6d4; /* cyan-400 */
+  --muted: #9ca3af;
+  --card-bg: rgba(255,255,255,0.03);
+  --glass: rgba(10, 12, 16, 0.6);
+  --ring-grad: radial-gradient(closest-side, rgba(6,182,212,0.22), rgba(6,182,212,0.06));
+}
+
+/* font */
+html, body { font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, "Helvetica Neue", Arial; }
+
+/* containers */
+.card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.06);
+  backdrop-filter: blur(6px);
+  border-radius: 14px;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(2,6,23,0.6); }
+
+.section-title {
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.6rem);
+  font-weight: 600;
+  color: #e6eef2;
+  letter-spacing: 0.02em;
+}
+
+/* profile ring */
+#ring {
+  position: absolute;
+  background: var(--ring-grad);
+  width: 110%;
+  height: 110%;
+  top: -5%;
+  left: -5%;
+  transform: scale(1.12);
+  pointer-events: none;
+  will-change: transform, opacity;
+  border-radius: 9999px;
+}
+
+#profileCard { transition: transform 450ms cubic-bezier(.2,.9,.3,1), box-shadow 450ms; transform-origin: center; display: inline-block; }
+#profileCard img { display: block; }
+
+/* buttons */
+.btn-primary {
+  background: linear-gradient(90deg, rgba(6,182,212,1), rgba(56,189,248,0.9));
+  color: #000;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(6,182,212,0.12);
+  text-align: center;
+}
+.btn-primary:hover { transform: translateY(-3px); transition: 220ms; }
+
+.btn-ghost {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* tags */
+.tag {
+  display: inline-block;
+  padding: 0.35rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.02);
+  color: var(--muted);
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 0.85rem;
+}
+
+/* forms */
+.form-input { width: 100%; color: #e6eef2; outline: none; }
+
+/* focus ring accessible */
+a:focus, button:focus, input:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(6,182,212,0.12);
+  border-radius: 8px;
+}
+
+/* particle canvas */
+#bgParticles { width: 100%; height: 100vh; display: block; }
+
+/* floating fallback */
+@keyframes floaty { 0% { transform: translateY(0) rotateZ(0); } 50% { transform: translateY(-8px) rotateZ(1deg);} 100% { transform: translateY(0) rotateZ(0);} }
+.profile-wrap #profileCard { animation: floaty 6s ease-in-out infinite; }
+
+/* nav link active state */
+.nav-link-active { color: #fff !important; position: relative; }
+.nav-link-active::after { content: ''; position: absolute; left: 0; bottom: -6px; width: 100%; height: 2px; background: var(--accent); border-radius: 2px; }
+
+/* Swiper tweaks for mobile carousel */
+.project-swiper { padding-bottom: 28px; }
+.project-swiper .swiper-pagination-bullet { background: #6b7280; opacity: 1; }
+.project-swiper .swiper-pagination-bullet-active { background: var(--accent); }
+
+/* utilities */
+.sr-only { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+/* Small responsive tweaks */
+@media (max-width: 640px) { .profile-wrap { margin-top: 8px; } }
